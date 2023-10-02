@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="styles/style.css">
+<head>
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-ayIcfxGrqV5K+iaMRXS1VZd/Zr5qoZTY7Wyn4B2Gp6lA9m4DQAt6lcvcAOB6b5FZ5Yl5X54jAPBZJV7vQG+SAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+    
+            #container {
+                display: flex;
+                height: 100vh;
+            }
+    
+            #left-column {
+                flex: 1;
+                background-color: #3498db;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: left;
+                overflow: auto;
+            }
+    
+            #welcome {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+    
+            .social-btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            .social-btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+                cursor: pointer;
+                margin-bottom: 10px;
+                border: 1px solid #fff;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #3498db;
+                text-align: left;
+                padding-left: 20px;
+            }
+    
+            #right-column {
+                flex: 1;
+                background: url('your-background-image.jpg') center/cover;
+                overflow: hidden;
+            }
+    
+            #email-password-form {
+                display: none;
+                max-width: 300px;
+                margin: 20px auto;
+            }
+    
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+    
+            #submit-btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+            /* Media Queries for Responsive Design */
+            @media (max-width: 600px) {
+                #container {
+                    flex-direction: column;
+                }
+    
+                #left-column, #right-column {
+                    width: 100%;
+                }
+    
+                .social-btn {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="left-column">
+                <div id="welcome">Welcome! Choose your social media platform:</div>
+    
+                <div class="social-btn-container">
+                    <button class="social-btn" onclick="showForm('Twitter')">Twitter</button>
+                    <button class="social-btn" onclick="showForm('Facebook')">Facebook</button>
+                    <button class="social-btn" onclick="showForm('LinkedIn')">LinkedIn</button>
+                </div>
+            </div>
+    
+            <div id="right-column">
+                <div id="email-password-form">
+                    <form>
+                        <input type="email" placeholder="Enter your email" required>
+                        <input type="password" placeholder="Enter your password" required>
+                        <button type="button" id="submit-btn" onclick="submitForm()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function showForm(socialMedia) {
+                document.getElementById('email-password-form').style.display = 'block';
+                document.getElementById('submit-btn').innerText = `Sign up with ${socialMedia}`;
+    
+                // Hide other social buttons
+                var socialButtons = document.querySelectorAll('.social-btn');
+                for (var i = 0; i < socialButtons.length; i++) {
+                    if (socialButtons[i].innerText.toLowerCase() !== socialMedia.toLowerCase()) {
+                        socialButtons[i].style.display = 'none';
+                    }
+                }
+            }
+    
+            function submitForm() {
+                // Add your form submission logic here
+                alert('Form submitted!');
+            }
+        </script>
+    </body>
+    </html>
+    
